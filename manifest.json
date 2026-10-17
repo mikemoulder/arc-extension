@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Arc House Progress Tracker",
+  "version": "1.0.0",
+  "description": "Marks Arc House content you've already read, watched or commented on, using your My Contributions history.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://community.arc.io/*"],
+  "action": {
+    "default_title": "Arc House Progress Tracker",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://community.arc.io/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <img src="icons/icon48.png" alt="" width="32" height="32">
+      <div>
+        <h1>Arc House Tracker</h1>
+        <p class="status"><span id="status-dot" class="dot"></span><span id="sync-status">Not synced yet</span></p>
+      </div>
+    </div>
+    <button id="sync" class="btn btn-primary" title="Sync your contributions">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-14.3 4.9M4 12a8 8 0 0 1 14.3-4.9M18 3v4.5h-4.5M6 21v-4.5h4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span id="sync-label">Sync</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-num"><b id="n-total">0</b><span>items completed</span></div>
+      <div class="bar" id="bar"></div>
+      <ul class="legend">
+        <li><i class="k-read"></i>Read <b id="n-read">0</b></li>
+        <li><i class="k-watched"></i>Watched <b id="n-watched">0</b></li>
+        <li><i class="k-commented"></i>Commented <b id="n-commented">0</b></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Completed items on the feed</h2>
+      <div class="segmented" id="mode" role="radiogroup">
+        <button role="radio" data-value="badge">Badge</button>
+        <button role="radio" data-value="dim">Dim</button>
+        <button role="radio" data-value="hide">Hide</button>
+      </div>
+      <label class="row">
+        <span><b>Auto-sync</b><small>Refresh history in the background</small></span>
+        <input type="checkbox" class="switch" id="autoSync">
+      </label>
+      <label class="row">
+        <span><b>Status pill</b><small>Show progress in the page corner</small></span>
+        <input type="checkbox" class="switch" id="showPill">
+      </label>
+    </section>
+
+    <section class="card list-card">
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input id="search" type="search" placeholder="Search your history">
+      </div>
+      <ul id="items"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <button id="open" class="link">Open My Contributions ↗</button>
+    <button id="clear" class="link danger">Reset data</button>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

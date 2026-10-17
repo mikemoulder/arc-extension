@@ -1,0 +1,43 @@
+.arct-badge {
+  --arct-kind: #16a34a;
+  position: absolute !important;
+  top: 10px !important;
+  right: 10px !important;
+  z-index: 50 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  height: 24px !important;
+  padding: 0 10px 0 3px !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, .94) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(1.4) !important;
+  backdrop-filter: blur(8px) saturate(1.4) !important;
+  color: #16141f !important;
+  font: 600 11.5px/1 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif !important;
+  letter-spacing: .01em !important;
+  box-shadow: 0 0 0 1px rgba(22, 20, 31, .06), 0 4px 12px rgba(22, 20, 31, .18) !important;
+  pointer-events: auto !important;
+  cursor: default !important;
+  animation: arct-in .25s ease-out both;
+}
+.arct-badge[data-kind="watched"] { --arct-kind: #2563eb; }
+.arct-badge[data-kind="commented"] { --arct-kind: #9333ea; }
+.arct-badge .arct-ic {
+  display: grid !important;
+  place-items: center !important;
+  width: 18px !important;
+  height: 18px !important;
+  border-radius: 50% !important;
+  background: var(--arct-kind) !important;
+  color: #fff !important;
+}
+.arct-badge svg { width: 12px !important; height: 12px !important; display: block !important; }
+@keyframes arct-in { from { opacity: 0; transform: translateY(-3px) scale(.96); } }
+
+/* Dim mode */
+html[data-arct-mode="dim"] .arct-done > :not(.arct-badge) { opacity: .45; filter: grayscale(.7); transition: opacity .2s, filter .2s; }
+html[data-arct-mode="dim"] .arct-done:hover > :not(.arct-badge) { opacity: 1; filter: none; }
+
+/* Hide mode */
+html[data-arct-mode="hide"] .arct-done { display: none !important; }
